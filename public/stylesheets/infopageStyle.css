@@ -1,0 +1,69 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+body {
+  background: url(/images/background.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  color: gray;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.buttons {
+    background-color: #eee8dc;
+    scale: 90%;
+}
+
+.buttons:hover {
+    background-color:rgba(210, 180, 140, 0.784);
+    background-blend-mode: lighten;
+    scale: 100%;
+}
+
+.buttoncontainer {
+    margin-left: auto;
+    margin-top: 3%;
+}
+
+.maintable {
+    margin-top: 2%;
+    font-size: 13pt;
+}
+
+.title {
+    font-size: 32pt;
+    width: 80%;
+}
+
+.topbar {
+    display: inline-flex;
+    width: 100%;
+    margin-top: 2%;
+}
+
+.editmenu {
+    background-color: #eee8dc;
+    border-radius: 15px;
+}
+
+.modaltopbar {
+    display: inline-flex;
+    width: 100%; 
+}
+
+.footer {
+    display: inline-flex;
+    width: 100%;
+}
+
+.buttondiv {
+    display: inline-flex;
+    margin: auto;
+    scale: 110%;
+}
+
+.modal {
+    width: 50% !important;
+}
+
