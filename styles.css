@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+body {
+  background: url(background.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.main-text {
+  color:gray;
+  opacity: 0.9;
+  text-align: center;
+}
+
+.getstartedbutton {
+  background: none;
+  color: gray;
+  border: none;
+  text-decoration: none;
+  font-size: 26pt;
+  margin:auto;
+  border-radius: 10px;
+  
+}
+
+.getstartedbutton:hover {
+  color: gray;
+  background-color: white;
+  background-blend-mode: lighten;
+}
+
+.buttonholder {
+  margin-top: 5%;
+}
+
+* {
+  font-family: 'Open Sans', sans-serif;
+}
