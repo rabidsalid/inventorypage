@@ -1,10 +1,10 @@
 const db = require("./db_connection");
 const fs = require("fs");
 
-const drop_stuff_table_sql = fs.readFileSync(__dirname + "/db/queries/init/drop_stuff_table.sql", { encoding: "UTF-8" })
-const create_stuff_table_sql = fs.readFileSync(__dirname + "/db/queries/init/create_stuff_table.sql", { encoding: "UTF-8" })
-const insert_stuff_table_sql = fs.readFileSync(__dirname + "/db/queries/init/insert_stuff_table.sql", { encoding: "UTF-8" })
-const read_stuff_table_sql = fs.readFileSync(__dirname + "/db/queries/init/read_stuff_table.sql", { encoding: "UTF-8" })
+const drop_stuff_table_sql = fs.readFileSync(__dirname + "/queries/init/drop_stuff_table.sql", { encoding: "UTF-8" })
+const create_stuff_table_sql = fs.readFileSync(__dirname + "/queries/init/create_stuff_table.sql", { encoding: "UTF-8" })
+const insert_stuff_table_sql = fs.readFileSync(__dirname + "/queries/init/insert_stuff_table.sql", { encoding: "UTF-8" })
+const read_stuff_table_sql = fs.readFileSync(__dirname + "/queries/init/read_stuff_table.sql", { encoding: "UTF-8" })
 
 db.execute(drop_stuff_table_sql);
 db.execute(create_stuff_table_sql);
