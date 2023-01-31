@@ -29,24 +29,17 @@
                     </tr>
                 </thead>
                 <tbody>
+                    <% for (let i = 0; i < inventory.length; i++) { %>
                     <tr>
-                        <td>Widgets</td>
-                        <td>5</td>
+                        <td><%=inventory[i].item%></td>
+                        <td><%=inventory[i].quantity%></td>
                         <td class="buttoncontainer">
-                            <a class="btn-floating btn-large waves-effect waves-light buttons" href="/invpage/infopage"><i class="material-icons grey-text infoicon">info_outline</i></a>
+                            <a class="btn-floating btn-large waves-effect waves-light buttons" href=<%="/invpage/infopage/" + inventory[i].id %>><i class="material-icons grey-text infoicon">info_outline</i></a>
                             <a class="btn-floating btn-large waves-effect waves-light buttons"><i class="material-icons grey-text">edit</i></a>
                             <a class="btn-floating btn-large waves-effect waves-light buttons"><i class="material-icons grey-text">close</i></a>
                         </td>
-                    </tr>
-                    <tr>
-                        <td>Gizmos</td>
-                        <td>99</td>
-                        <td class="buttoncontainer">
-                            <a class="btn-floating btn-large waves-effect waves-light buttons" href="/invpage/infopage"><i class="material-icons grey-text infoicon">info_outline</i></a>
-                            <a class="btn-floating btn-large waves-effect waves-light buttons"><i class="material-icons grey-text">edit</i></a>
-                            <a class="btn-floating btn-large waves-effect waves-light buttons"><i class="material-icons grey-text">close</i></a>
-                        </td>
-                    </tr>
+                    </tr> 
+                    <% } %>
                 </tbody>
             </table>
         </div>
