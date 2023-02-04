@@ -49,6 +49,20 @@ app.get( "/invpage/infopage/:id", ( req, res ) => {
     // res.sendFile( __dirname + "/views/infopage.html" );
 } );
 
+const delete_item_sql = `DELETE FROM stuff WHERE id = ?`
+
+//define a route for deleting an item
+app.get("/invpage/item/:id/delete", (req, res) => {
+    db.execute(delete_item_sql, [req.params.id], (error, results) => {
+        if (error) {
+            res.status(500).send(error);
+        }
+        else {
+            res.redirect("/invpage");
+        }
+    })
+});
+
 // start the server
 app.listen( port, () => {
     console.log(`App server listening on ${ port }. (Go to http://localhost:${ port })` );

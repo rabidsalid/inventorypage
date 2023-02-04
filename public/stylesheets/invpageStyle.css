@@ -24,7 +24,7 @@ body {
 }
 
 .buttons {
-    background: none;
+    background-color: #eee8dc;
     color: gray;
     border: none;
     text-decoration: none;
