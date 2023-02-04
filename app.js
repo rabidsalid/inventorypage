@@ -34,7 +34,7 @@ app.get( "/invpage", ( req, res ) => {
     // res.sendFile( __dirname + "/views/invpage.html" );
 } );
 
-const read_item_sql = 'SELECT item, quantity, description FROM stuff WHERE id = ?'
+const read_item_sql = 'SELECT item, quantity, description, id FROM stuff WHERE id = ?'
 
 // define a route for the item detail page
 app.get( "/invpage/infopage/:id", ( req, res ) => {
@@ -55,7 +55,7 @@ app.get( "/invpage/infopage/:id", ( req, res ) => {
 const delete_item_sql = `DELETE FROM stuff WHERE id = ?`
 
 //define a route for deleting an item
-app.get("/invpage/item/:id/delete", (req, res) => {
+app.get("/invpage/infopage/:id/delete", (req, res) => {
     db.execute(delete_item_sql, [req.params.id], (error, results) => {
         if (error) {
             res.status(500).send(error);
@@ -66,12 +66,44 @@ app.get("/invpage/item/:id/delete", (req, res) => {
     })
 });
 
+// define a route for item Create
 const create_item_sql = `
     INSERT INTO stuff
         (item, quantity)
     VALUES
         (?, ?)
 `
+app.post("/invpage", ( req, res ) => {
+    db.execute(create_item_sql, [req.body.name, req.body.quantity], (error, results) => {
+        if (error)
+            res.status(500).send(error); //Internal Server Error
+        else {
+            //results.insertId has the primary key (id) of the newly inserted element.
+            res.redirect(`/invpage/infopage/${results.insertId}`);
+        }
+    });
+})
+
+// define a route for item UPDATE
+const update_item_sql = `
+    UPDATE
+        stuff
+    SET
+        item = ?,
+        quantity = ?,
+        description = ?
+    WHERE
+        id = ?
+`
+app.post("/invpage/infopage/:id", ( req, res ) => {
+    db.execute(update_item_sql, [req.body.name, req.body.quantity, req.body.description, req.params.id], (error, results) => {
+        if (error)
+            res.status(500).send(error); //Internal Server Error
+        else {
+            res.redirect(`/invpage/infopage/${req.params.id}`);
+        }
+    });
+})
 
 // start the server
 app.listen( port, () => {

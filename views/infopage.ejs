@@ -21,8 +21,7 @@
         <div class="topbar">
             <h2 class="title">Item Details:</h2>
             <div class="buttoncontainer">
-                <a class="btn-floating btn-large waves-effect waves-light buttons"><i class="material-icons grey-text">delete</i></a> 
-                <!-- href=<%="/invpage/item/" + "/delete"%> -->
+                <a class="btn-floating btn-large waves-effect waves-light buttons" href=<%="/invpage/item/" + id + "/delete"%>><i class="material-icons grey-text">delete</i></a> 
                 <a class="btn-floating btn-large waves-effect waves-light modal-trigger buttons" href="#modal1"><i class="material-icons grey-text">edit</i></a>
                 <a class="btn-floating btn-large waves-effect waves-light buttons" href="/invpage"><i class="material-icons grey-text">close</i></a>
             </div>
@@ -49,26 +48,26 @@
                     <h2 style="font-size: 30pt; margin-top: 2%; margin-left: 1%">Edit Item:</h2>
                     <a class="btn-floating btn-large waves-effect waves-light modal-close buttons" href="#!" style="margin-left:auto"><i class="material-icons grey-text">close</i></a>
                 </div>
-                <form>
+                <form method="post" action="/invpage/infopage/<%= id%>">
                     <div class="row">
                         <div class="input-field col s6">
-                            <input id="item_name" type="text" class="validate">
+                            <input name="name" id="item_name" type="text" class="validate" value="<%= item%>">
                             <label for="item_name">Item Name</label>
                         </div>
                         <div class="input-field col s5">
-                            <input type="number" name="quantity inputline" id="quantityInput" value="1">
+                            <input type="number" name="quantity" id="quantityInput" value="1">
                             <label for="quantityInput" class="active inputline">Quantity</label>
                         </div>
                     </div>
                     <div class="row">
                         <div class="input-field col s11">
-                            <input id="description" type="text" class="validate">
+                            <input id="description" name="description" type="text" class="validate" value="<%= description%>">
                             <label for="description">Description</label>
                         </div>
                     </div>
                     <div class="footer">
                         <div class="buttondiv">
-                            <button class="btn waves-effect waves-light grey-text buttons modal-close" type="submit" name="action" style="background-color: #d5dadd; border-radius: 6px;">Cancel</button>
+                            <a class="btn waves-effect waves-light grey-text buttons modal-close" href="#!" name="action" style="background-color: #d5dadd; border-radius: 6px;">Cancel</a>
                             <button class="btn waves-effect waves-light grey-text buttons" type="submit" name="action" style="background-color: #d5dadd; border-radius: 6px;">Confirm</button>
                         </div>
                     </div>

@@ -36,7 +36,7 @@
                         <td class="buttoncontainer">
                             <a class="btn-floating btn-large waves-effect waves-light buttons" href=<%="/invpage/infopage/" + inventory[i].id %>><i class="material-icons grey-text infoicon">info_outline</i></a>
                             <a class="btn-floating btn-large waves-effect waves-light buttons"><i class="material-icons grey-text">edit</i></a>
-                            <a class="btn-floating btn-large waves-effect waves-light buttons" href=<%="/invpage/item/" + inventory[i].id + "/delete" %>><i class="material-icons grey-text">close</i></a>
+                            <a class="btn-floating btn-large waves-effect waves-light buttons" href=<%="/invpage/infopage/" + inventory[i].id + "/delete" %>><i class="material-icons grey-text">close</i></a>
                         </td>
                     </tr> 
                     <% } %>
@@ -46,16 +46,16 @@
 
         <div class="addsection">
             <h2>Add Items</h2>
-            <form method="post" class="row additemsbox">
+            <form method="post" action="/invpage" class="row additemsbox">
                     <div class="input-field col s5">
-                        <input id="item_name" type="text" class="validate" required="">
+                        <input id="item_name" type="text" name="name" class="validate" required>
                         <label for="item_name">Item Name</label>
                     </div>
                     <div class="input-field col s5">
-                        <input type="number" name="quantity inputline" id="quantityInput" value="1">
+                        <input type="number" name="quantity" id="quantityInput" value="1">
                         <label for="quantityInput" class="active inputline">Quantity</label>
                     </div>
-                    <a class="btn-floating btn-large waves-effect waves-light buttons submitbutton" type="submit"><i class="material-icons grey-text">add</i></a>
+                    <button class="btn-floating btn-large waves-effect waves-light buttons submitbutton" type="submit"><i class="material-icons grey-text">add</i></button>
             </form>
         </div>
     </div>
