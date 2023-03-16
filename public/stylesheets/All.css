@@ -1,0 +1,13 @@
+.nav-bar {
+    background-color: #dcccbc;
+}
+.brand-logo {
+    margin-left: 25pt;
+}
+.loginbutton, .logoutbutton {
+    background-color: slategray;
+    color: white;
+}
+.loginbutton:hover, .logoutbutton:hover {
+    background-color:#54616efa;
+}

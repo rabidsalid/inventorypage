@@ -15,8 +15,37 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <link rel="stylesheet" href="/stylesheets/infopageStyle.css">
+    <link rel="stylesheet" href="/stylesheets/All.css">
 </head>
 <body>
+    <header>
+        <nav>
+            <div class="nav-wrapper nav-bar">
+                <a href="/" class="brand-logo">Inventory Manager</a>
+                <a href="#" data-target="mobile-nav" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+                <ul id="desktop-nav" class="right hide-on-med-and-down">
+                    <li><a href="/"><i class="material-icons left">home</i>Home</a></li>
+                    <li><a href="/invpage"><i class="material-icons left">list</i>Inventory</a></li>
+                    <% if (isLoggedIn) { %>
+                        <li><a href="/profile"><i class="material-icons left">person</i> Hello, <%=user.name%></a> </li>
+                        <li><a href="/logout" class="btn logoutbutton">Logout</a></li>                        
+                    <% } else { %>
+                        <li><a href="/login" class="btn loginbutton">Login</a></li>
+                    <% } %>
+                </ul>
+            </div>
+        </nav>
+        <ul id="mobile-nav" class="sidenav">
+             <li><a href="/"><i class="material-icons left">home</i>Home</a></li>
+             <li><a href="/invpage"><i class="material-icons left">list</i>Inventory</a></li>
+             <% if (isLoggedIn) { %>
+                <li><a href="/profile"><i class="material-icons left">person</i> Hello, <%=user.name%></a> </li>
+                <li><a href="/logout" class="btn red">Logout</a></li>                        
+            <% } else { %>
+                <li><a href="/login" class="btn blue">Login</a></li>
+            <% } %>
+        </ul>
+    </header>
     <div class="container">
         <div class="topbar">
             <h2 class="title">Item Details:</h2>
@@ -55,7 +84,7 @@
                             <label for="item_name">Item Name</label>
                         </div>
                         <div class="input-field col s5">
-                            <input type="number" name="quantity" id="quantityInput" value="1">
+                            <input type="number" name="quantity" id="quantityInput" value="<%= quantity%>">
                             <label for="quantityInput" class="active inputline">Quantity</label>
                         </div>
                     </div>
@@ -80,6 +109,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
 <!-- initialize Materialize elements -->
-<script> M.AutoInit();</script>
+<script src="/scripts/materialize.js"></script>
 </body>
 </html>

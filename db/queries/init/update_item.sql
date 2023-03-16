@@ -6,3 +6,5 @@ SET
     description = ?
 WHERE
     id = ?
+AND
+    userid = ?;

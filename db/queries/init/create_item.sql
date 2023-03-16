@@ -1,4 +1,4 @@
 INSERT INTO stuff
-    (item, quantity)
+    (item, quantity, userid)
 VALUES
-    (?, ?)
+    (?, ?, ?)
